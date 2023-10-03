@@ -41,15 +41,17 @@ document.getElementById('details').addEventListener('click', (e) => {
     num2 = parseInt(num2);
 
     let res = [];
+    let totalTime = 0;
     if ((num2 >= num1) && (num1 > 1)) {
         const { data, total_time } = getPrimesInRange(num1, num2);
         res = data
+        totalTime = total_time;
     } else {
         alert('num1 must be greater than 1')
     }
 
     /* average time complexity of 2b & 2c */
-    let averageTime = total_time / data.length;
+    let averageTime = totalTime / res.length;
 
     if (res.length > 1) {
         document.getElementById('tab__button').style.visibility = 'visible';
