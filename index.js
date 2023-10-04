@@ -21,9 +21,8 @@ const getPrimesInRange = (num1, num2) => {
     for (let i = num1; i <= num2; i++) {
         const startTime = Date.now();
         let res = primeNumber(i);
-        const endTime = Date.now();
-        if (res) aa.push({ ['number']: i, ['result']: 'Prime', ['time']: (endTime - startTime) });
-        else aa.push({ ['number']: i, ['result']: 'Normal', ['time']: (endTime - startTime) })
+        if (res) aa.push({ ['number']: i, ['result']: 'Prime', ['time']: (Date.now() - startTime) });
+        else aa.push({ ['number']: i, ['result']: 'Normal', ['time']: (Date.now() - startTime) })
     }
     return { data: aa, total_time: (Date.now() - totalStart) }
 }
@@ -47,7 +46,7 @@ document.getElementById('details').addEventListener('click', (e) => {
         res = data
         totalTime = total_time;
     } else {
-        alert('num1 must be greater than 1')
+        alert('num1, num2 must be greater than 1 and num2>=num1')
     }
 
     /* average time complexity of 2b & 2c */
