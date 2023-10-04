@@ -51,13 +51,15 @@ document.getElementById('details').addEventListener('click', (e) => {
     }
 
     /* average time complexity of 2b & 2c */
-    let averageTime = totalTime / res.length;
+    let averageTime = parseFloat(totalTime / res.length).toFixed(5);
 
     if (res.length > 1) {
         document.getElementById('tab__button').style.visibility = 'visible';
     }
     document.getElementById('input1').value = null;
     document.getElementById('input2').value = null;
+    let averageTimeTaken = document.getElementById('average__time');
+    let totalTimeTaken = document.getElementById('total__time');
     let table_1 = document.getElementById('table_1');
     let table_2 = document.getElementById('table_2');
     let modalBody = document.getElementById('modal_body');
@@ -66,6 +68,9 @@ document.getElementById('details').addEventListener('click', (e) => {
     let table1 = document.getElementById('table1');
     let table2 = document.getElementById('table2');
     let modalTitle = document.getElementById('exampleModalLabel');
+
+    averageTimeTaken.innerHTML = `Average time taken: ${averageTime}`;
+    totalTimeTaken.innerHTML = `Total time taken: ${totalTime}`;
 
     /*  table 2b map */
     let tableB = res && res.map((item, index) => {
